@@ -10,17 +10,10 @@ import UIKit
 extension UIViewController {
   
   func presentGFAlert(
-    _ alertTitle: String?,
-    message: String?,
-    buttonTitle: String? = nil,
-    dismissAction: (() -> Void)? = nil) {
+    _ alertItem: AlertItem?) {
       DispatchQueue.main.async { [weak self] in
         guard let self else { return }
-        let vc = GFAlertVC(
-          alertTitle,
-          message: message,
-          buttonTitle: buttonTitle,
-          dismissAction: dismissAction)
+        let vc = GFAlertVC(alertItem)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         

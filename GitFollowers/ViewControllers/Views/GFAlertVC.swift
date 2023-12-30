@@ -14,21 +14,12 @@ class GFAlertVC: UIViewController {
   private let messageLabel = GFBodyLabel(.center)
   private let actionButton = GFButton("Ok", backgroundColor: .systemPink)
   
-  private var alertTitle: String?
-  private var message: String?
-  private var buttonTitle: String?
-  private var dismissAction: (() -> Void)?
+  private var alertItem: AlertItem?
   
   private let padding: CGFloat = 20
   
-  init(_ alertTitle: String? = nil,
-       message: String? = nil,
-       buttonTitle: String? = nil,
-       dismissAction: (() -> Void)? = nil) {
-    self.alertTitle = alertTitle
-    self.message = message
-    self.buttonTitle = buttonTitle
-    self.dismissAction = dismissAction
+  init(_ alertItem: AlertItem? = nil) {
+    self.alertItem = alertItem
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -52,14 +43,14 @@ class GFAlertVC: UIViewController {
     containerView.backgroundColor = .systemBackground
     
     containerView.addSubview(titleLabel)
-    titleLabel.text = alertTitle ?? "Something went wrong"
+    titleLabel.text = alertItem?.title ?? "Something went wrong"
     
     containerView.addSubview(messageLabel)
-    messageLabel.text = message ?? "Unable to proceed"
+    messageLabel.text = alertItem?.message ?? "Unable to proceed"
     messageLabel.numberOfLines = 4
     
     containerView.addSubview(actionButton)
-    actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
+    actionButton.setTitle(alertItem?.buttonTitle ?? "Ok", for: .normal)
     actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
     
     setupConstraints()
@@ -90,6 +81,28 @@ class GFAlertVC: UIViewController {
   }
   
   @objc private func dismissVC() {
-    dismiss(animated: true, completion: dismissAction)
+    dismiss(animated: true, completion: alertItem?.dismissAction)
   }
+}
+
+struct AlertItem {
+  var title: String?
+  var message: String?
+  var buttonTitle: String? = nil
+  var dismissAction: (() -> Void)? = nil
+  
+  init(_ title: String?,
+       message: String?,
+       buttonTitle: String? = nil,
+       dismissAction: (() -> Void)? = nil) {
+    self.title = title
+    self.message = message
+    self.buttonTitle = buttonTitle
+    self.dismissAction = dismissAction
+  }
+}
+
+protocol AlertProtocol: AnyObject {
+  
+  func showAlert(_ alertItem: AlertItem)
 }

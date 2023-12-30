@@ -9,16 +9,17 @@ import UIKit
 
 class FollowerListVC: UIViewController {
   
-  private let userName: String
+  private var viewModel: FollowerListViewModel
   
   init(_ userName: String) {
-    self.userName = userName
+    viewModel = .init(userName)
     super.init(nibName: nil, bundle: nil)
     self.title = userName
+    viewModel.alertDelegate = self
   }
   
   required init?(coder: NSCoder) {
-    userName = ""
+    viewModel = .init("")
     super.init(coder: coder)
   }
   
@@ -27,9 +28,20 @@ class FollowerListVC: UIViewController {
     setup()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.setNavigationBarHidden(false, animated: animated)
+  }
+  
   private func setup() {
     view.backgroundColor = .systemBackground
-    navigationController?.isNavigationBarHidden = false
     navigationController?.navigationBar.prefersLargeTitles = true
+  }
+}
+
+extension FollowerListVC: AlertProtocol {
+  
+  func showAlert(_ alertItem: AlertItem) {
+    presentGFAlert(alertItem)
   }
 }
