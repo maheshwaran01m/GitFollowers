@@ -102,8 +102,8 @@
 		9DB0BACD2B400F1600C41A2D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9DB0BAEC2B4051A300C41A2D /* ViewModel */,
 				9DB0BAD02B4019E400C41A2D /* Views */,
+				9DB0BAEC2B4051A300C41A2D /* ViewModel */,
 				9DB0BABC2B400DF300C41A2D /* SearchVC.swift */,
 				9DB0BACE2B4015F600C41A2D /* FavoritesListVC.swift */,
 				9DB0BAD52B402B4D00C41A2D /* FollowerListVC.swift */,
