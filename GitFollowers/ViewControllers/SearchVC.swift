@@ -85,7 +85,10 @@ extension SearchVC: UITextFieldDelegate {
 extension SearchVC {
   
   @objc private func showFollowerListVC() {
-    guard let text = userNameTextField.text, !text.isEmpty else { return }
+    guard let text = userNameTextField.text, !text.isEmpty else {
+      presentGFAlert("Empty User name", message: "Please Enter the user name", buttonTitle: "Ok")
+      return
+    }
     let vc = FollowerListVC(text)
     navigationController?.pushViewController(vc, animated: true)
   }
