@@ -52,7 +52,7 @@ class SearchVC: UIViewController {
       userNameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
       userNameTextField.heightAnchor.constraint(equalToConstant: 50),
       
-      getFollowersButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+      //getFollowersButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
       getFollowersButton.topAnchor.constraint(greaterThanOrEqualTo: userNameTextField.bottomAnchor, constant: 50),
       getFollowersButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
       getFollowersButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
