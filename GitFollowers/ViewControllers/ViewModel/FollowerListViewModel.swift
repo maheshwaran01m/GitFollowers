@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol FollowerProtocol: AnyObject {
+  func updateUI()
+}
+
 class FollowerListViewModel {
   
   var userName: String
   var followers: [Follower] = []
   
   weak var alertDelegate: AlertProtocol?
+  weak var delegate: FollowerProtocol?
   
   let manager = APIManager.shared
   
@@ -29,6 +34,7 @@ class FollowerListViewModel {
       case .success(let followers):
         DispatchQueue.main.async {
           self.followers = followers
+          self.delegate?.updateUI()
         }
       case .failure(let error):
         self.alertDelegate?.showAlert(.init("Bad Error", message: error.localizedDescription))

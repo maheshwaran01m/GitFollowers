@@ -23,12 +23,14 @@ class GFAvatarImageView: UIImageView {
   
   init() {
     super.init(frame: .zero)
+    setup()
   }
   
   private func setup() {
-    layer.cornerRadius = 16
+    layer.cornerRadius = 10
     clipsToBounds = true
     image = placeholderImage
+    layer.masksToBounds = true
     translatesAutoresizingMaskIntoConstraints = false
   }
 }
