@@ -48,29 +48,13 @@ class FollowerListVC: UIViewController {
 extension FollowerListVC {
   
   private func setupCollectionView() {
-    collectionView = .init(frame: view.bounds, collectionViewLayout: customFlowLayout)
+    collectionView = .init(frame: view.bounds, collectionViewLayout: UIHelper.customFlowLayout(view))
     guard let collectionView else { return }
     view.addSubview(collectionView)
     
     collectionView.backgroundColor = .systemBackground
     collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseIdentifier)
     configureCollectionViewDataSource()
-  }
-  
-  private var customFlowLayout: UICollectionViewFlowLayout {
-    let width = view.bounds.width
-    let padding: CGFloat = 12
-    let minimumItemSpacing: CGFloat = 10
-    
-    let finalWidth = width - (padding * 2) - (minimumItemSpacing * 2)
-    
-    let itemWidth = finalWidth/3
-    
-    let layout = UICollectionViewFlowLayout()
-    layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
-    layout.itemSize = .init(width: itemWidth, height: itemWidth + 40)
-    
-    return layout
   }
 }
 
