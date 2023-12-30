@@ -24,7 +24,7 @@ class GFAlertVC: UIViewController {
   init(_ alertTitle: String? = nil,
        message: String? = nil,
        buttonTitle: String? = nil,
-       dismissAction: (() -> Void)?) {
+       dismissAction: (() -> Void)? = nil) {
     self.alertTitle = alertTitle
     self.message = message
     self.buttonTitle = buttonTitle
@@ -47,7 +47,7 @@ class GFAlertVC: UIViewController {
     view.addSubview(containerView)
     containerView.layer.cornerRadius = 16
     containerView.layer.borderWidth = 2
-    containerView.layer.borderColor = UIColor.label.cgColor
+    containerView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
     containerView.translatesAutoresizingMaskIntoConstraints = false
     containerView.backgroundColor = .systemBackground
     
@@ -80,7 +80,7 @@ class GFAlertVC: UIViewController {
       actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
       actionButton.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding),
       actionButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding),
-      titleLabel.heightAnchor.constraint(equalToConstant: 44),
+      actionButton.heightAnchor.constraint(equalToConstant: 44),
       
       messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
       messageLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding),

@@ -10,10 +10,10 @@ import UIKit
 extension UIViewController {
   
   func presentGFAlert(
-    _ alertTitle: String? = nil,
-    message: String? = nil,
+    _ alertTitle: String?,
+    message: String?,
     buttonTitle: String? = nil,
-    dismissAction: (() -> Void)?) {
+    dismissAction: (() -> Void)? = nil) {
       DispatchQueue.main.async { [weak self] in
         guard let self else { return }
         let vc = GFAlertVC(
