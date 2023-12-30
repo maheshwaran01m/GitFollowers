@@ -104,5 +104,3 @@ extension FollowerListVC: AlertProtocol {
     presentGFAlert(alertItem)
   }
 }
-
-// 5:07
