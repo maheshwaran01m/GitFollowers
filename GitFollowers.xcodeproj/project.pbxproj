@@ -34,6 +34,9 @@
 		9DB0BAFF2B41AB6900C41A2D /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAFE2B41AB6900C41A2D /* GFSecondaryTitleLabel.swift */; };
 		9DB0BB012B41B5C500C41A2D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB002B41B5C500C41A2D /* Constants.swift */; };
 		9DB0BB032B41BDEF00C41A2D /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB022B41BDEF00C41A2D /* GFItemInfoView.swift */; };
+		9DB0BB052B41C22000C41A2D /* GFProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB042B41C22000C41A2D /* GFProfileInfoVC.swift */; };
+		9DB0BB072B41C57B00C41A2D /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB062B41C57B00C41A2D /* GFRepoItemVC.swift */; };
+		9DB0BB092B41C70D00C41A2D /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB082B41C70D00C41A2D /* GFFollowerItemVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		9DB0BAFE2B41AB6900C41A2D /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		9DB0BB002B41B5C500C41A2D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9DB0BB022B41BDEF00C41A2D /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
+		9DB0BB042B41C22000C41A2D /* GFProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFProfileInfoVC.swift; sourceTree = "<group>"; };
+		9DB0BB062B41C57B00C41A2D /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
+		9DB0BB082B41C70D00C41A2D /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +212,9 @@
 			isa = PBXGroup;
 			children = (
 				9DB0BAFB2B41AB1E00C41A2D /* GFProfileHeaderVC.swift */,
+				9DB0BB042B41C22000C41A2D /* GFProfileInfoVC.swift */,
+				9DB0BB062B41C57B00C41A2D /* GFRepoItemVC.swift */,
+				9DB0BB082B41C70D00C41A2D /* GFFollowerItemVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,12 +301,15 @@
 				9DB0BAF32B405B6500C41A2D /* GFAvatarImageView.swift in Sources */,
 				9DB0BAF92B4126DE00C41A2D /* ProfileVC.swift in Sources */,
 				9DB0BAE12B403A6A00C41A2D /* GFAlertVC.swift in Sources */,
+				9DB0BB072B41C57B00C41A2D /* GFRepoItemVC.swift in Sources */,
 				9DB0BAEE2B4051B900C41A2D /* FollowerListViewModel.swift in Sources */,
+				9DB0BB052B41C22000C41A2D /* GFProfileInfoVC.swift in Sources */,
 				9DB0BAE72B4046A000C41A2D /* Follower.swift in Sources */,
 				9DB0BAD62B402B4D00C41A2D /* FollowerListVC.swift in Sources */,
 				9DB0BADD2B40388600C41A2D /* GFTitleLabel.swift in Sources */,
 				9DB0BABB2B400DF300C41A2D /* SceneDelegate.swift in Sources */,
 				9DB0BAFC2B41AB1E00C41A2D /* GFProfileHeaderVC.swift in Sources */,
+				9DB0BB092B41C70D00C41A2D /* GFFollowerItemVC.swift in Sources */,
 				9DB0BAF72B41134800C41A2D /* GFEmptyView.swift in Sources */,
 				9DB0BAF52B40761900C41A2D /* UIHelper.swift in Sources */,
 				9DB0BAEB2B404B6D00C41A2D /* APIManager.swift in Sources */,
