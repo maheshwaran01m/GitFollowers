@@ -33,4 +33,20 @@ class GFAvatarImageView: UIImageView {
     layer.masksToBounds = true
     translatesAutoresizingMaskIntoConstraints = false
   }
+  
+  func downloadImage(_ urlString: String?) {
+    guard let urlString else { return }
+    
+    APIManager.shared.downloadImage(urlString) { [weak self] result in
+      guard let self else { return }
+      switch result {
+      case .success(let image):
+        DispatchQueue.main.async {
+          self.image = image
+        }
+      case .failure(let error):
+        print(error.localizedDescription)
+      }
+    }
+  }
 }

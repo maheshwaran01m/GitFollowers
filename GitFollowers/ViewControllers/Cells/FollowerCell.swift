@@ -34,6 +34,7 @@ class FollowerCell: UICollectionViewCell {
   
   func configure(_ follower: Follower) {
     userName.text = follower.id
+    imageView.downloadImage(follower.url)
   }
   
   private func setup() {
@@ -42,6 +43,7 @@ class FollowerCell: UICollectionViewCell {
     containerView.translatesAutoresizingMaskIntoConstraints = false
     containerView.layer.borderWidth = 1
     containerView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+    containerView.backgroundColor = .systemGroupedBackground
     
     containerView.addSubview(imageView)
     containerView.addSubview(userName)
