@@ -21,3 +21,42 @@ extension UIViewController {
       }
     }
 }
+
+// MARK: - LoadingView
+
+fileprivate var containerView: UIView?
+
+extension UIViewController {
+  
+  func showLoaderView() {
+    containerView = UIView(frame: view.bounds)
+    if let containerView {
+      view.addSubview(containerView)
+    }
+    
+    containerView?.backgroundColor = .secondarySystemGroupedBackground
+    containerView?.translatesAutoresizingMaskIntoConstraints = false
+    containerView?.alpha = 0
+    
+    UIView.animate(withDuration: 0.25) {
+      containerView?.alpha = 0.8
+    }
+    
+    let activityIndicator = UIActivityIndicatorView(style: .large)
+    containerView?.addSubview(activityIndicator)
+    activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+    
+    NSLayoutConstraint.activate([
+      activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+    ])
+    activityIndicator.startAnimating()
+  }
+  
+  func hideLoaderView() {
+    DispatchQueue.main.async {
+      containerView?.removeFromSuperview()
+      containerView = nil
+    }
+  }
+}

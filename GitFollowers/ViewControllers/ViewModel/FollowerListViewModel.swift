@@ -8,6 +8,7 @@
 import UIKit
 
 protocol FollowerProtocol: AnyObject {
+  func showLoaderView(_ show: Bool)
   func updateUI()
 }
 
@@ -30,9 +31,10 @@ class FollowerListViewModel {
   }
   
   func getFollowers(for userName: String, page: Int) {
+    delegate?.showLoaderView(true)
     manager.getFollowers(userName, page: page) { [weak self] result in
       guard let self else { return }
-      
+      delegate?.showLoaderView(false)
       switch result {
       case .success(let followers):
         self.add(followers)
