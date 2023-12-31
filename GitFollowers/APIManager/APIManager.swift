@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 final class APIManager {
   
   static let shared = APIManager()
   
   private init() {}
+  
+  private let cache = NSCache<NSString, UIImage>()
   
   private let baseURL = "https://api.github.com"
   
@@ -50,5 +53,50 @@ final class APIManager {
         completion(.failure(URLError(.cannotParseResponse)))
       }
     }.resume()
+  }
+}
+
+// MARK: - Image Cache
+
+extension APIManager {
+  
+  func downloadImage(_ urlString: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    
+    let cacheKey = NSString(string: urlString)
+    
+    if let image = cache.object(forKey: cacheKey) {
+      completion(.success(image))
+    } else {
+      
+      guard let url = URL(string: urlString) else { return }
+      
+      URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        guard let self, error == nil else {
+          completion(.failure(URLError(.badServerResponse)))
+          return
+        }
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+          completion(.failure(URLError(.badServerResponse)))
+          return
+        }
+        guard let data, let image = UIImage(data: data) else {
+          completion(.failure(URLError(.dataNotAllowed)))
+          return
+        }
+        // cache image
+        cache.setObject(image, forKey: cacheKey)
+        
+        completion(.success(image))
+      }.resume()
+    }
+  }
+  
+  func clearImageCache() {
+    cache.removeAllObjects()
+  }
+  
+  func clearImageCache(forKey key: String) {
+    let cacheKey = NSString(string: key)
+    cache.removeObject(forKey: cacheKey)
   }
 }
