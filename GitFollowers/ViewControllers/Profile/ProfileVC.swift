@@ -94,6 +94,8 @@ extension ProfileVC {
       case .success(let user):
         DispatchQueue.main.async {
           self.add(GFProfileHeaderVC(user), to: self.headerView)
+          self.add(GFRepoItemVC(user), to: self.itemViewOne)
+          self.add(GFFollowerItemVC(user), to: self.itemViewTwo)
         }
       case .failure(let error):
         print(error.localizedDescription)

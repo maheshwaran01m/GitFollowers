@@ -11,7 +11,7 @@ class GFItemInfoView: UIView {
   
   private let imageView = UIImageView()
   private let titleLabel = GFTitleLabel(.left, fontSize: 14)
-  private let countLabel = GFTitleLabel(.left, fontSize: 14)
+  private let countLabel = GFTitleLabel(.center, fontSize: 14)
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -53,16 +53,16 @@ class GFItemInfoView: UIView {
   func configure(_ type: ItemInfoType, with count: Int) {
     switch type {
     case .repos:
-      imageView.image = .init(named: Symbols.repos)
+      imageView.image = .init(systemName: Symbols.repos)
       titleLabel.text = "Public Repos"
     case .gists:
-      imageView.image = .init(named: Symbols.gists)
+      imageView.image = .init(systemName: Symbols.gists)
       titleLabel.text = "Public Gists"
     case .followers:
-      imageView.image = .init(named: Symbols.followers)
+      imageView.image = .init(systemName: Symbols.followers)
       titleLabel.text = "Followers"
     case .following:
-      imageView.image = .init(named: Symbols.following)
+      imageView.image = .init(systemName: Symbols.following)
       titleLabel.text = "Following"
     }
     countLabel.text = count.description
