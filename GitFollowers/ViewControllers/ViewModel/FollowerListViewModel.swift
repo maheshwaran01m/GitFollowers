@@ -21,6 +21,7 @@ class FollowerListViewModel {
   
   private var page = 1
   private var hasMoreFollowers = true
+  private var isSearching = false
   
   weak var alertDelegate: AlertProtocol?
   weak var delegate: FollowerProtocol?
@@ -75,11 +76,20 @@ extension FollowerListViewModel {
   func updateSearchResult(_ searchText: String? = nil) {
     guard let searchText, !searchText.isEmpty else {
       delegate?.updateUI(false, followers: followers)
+      isSearching = false
       return
     }
     filteredFollowers = followers.filter {
       $0.id.lowercased().contains(searchText.lowercased())
     }
+    isSearching = true
     delegate?.updateUI(false, followers: filteredFollowers)
+  }
+}
+
+extension FollowerListViewModel {
+  
+  func getFollower(_ row: Int) -> Follower {
+    isSearching ? filteredFollowers[row] : followers[row]
   }
 }

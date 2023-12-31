@@ -29,6 +29,7 @@
 		9DB0BAF32B405B6500C41A2D /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAF22B405B6500C41A2D /* GFAvatarImageView.swift */; };
 		9DB0BAF52B40761900C41A2D /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAF42B40761900C41A2D /* UIHelper.swift */; };
 		9DB0BAF72B41134800C41A2D /* GFEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAF62B41134800C41A2D /* GFEmptyView.swift */; };
+		9DB0BAF92B4126DE00C41A2D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAF82B4126DE00C41A2D /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		9DB0BAF22B405B6500C41A2D /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		9DB0BAF42B40761900C41A2D /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		9DB0BAF62B41134800C41A2D /* GFEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyView.swift; sourceTree = "<group>"; };
+		9DB0BAF82B4126DE00C41A2D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				9DB0BABC2B400DF300C41A2D /* SearchVC.swift */,
 				9DB0BACE2B4015F600C41A2D /* FavoritesListVC.swift */,
 				9DB0BAD52B402B4D00C41A2D /* FollowerListVC.swift */,
+				9DB0BAF82B4126DE00C41A2D /* ProfileVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				9DB0BAE92B40476800C41A2D /* User.swift in Sources */,
 				9DB0BAF12B405A3300C41A2D /* FollowerCell.swift in Sources */,
 				9DB0BAF32B405B6500C41A2D /* GFAvatarImageView.swift in Sources */,
+				9DB0BAF92B4126DE00C41A2D /* ProfileVC.swift in Sources */,
 				9DB0BAE12B403A6A00C41A2D /* GFAlertVC.swift in Sources */,
 				9DB0BAEE2B4051B900C41A2D /* FollowerListViewModel.swift in Sources */,
 				9DB0BAE72B4046A000C41A2D /* Follower.swift in Sources */,

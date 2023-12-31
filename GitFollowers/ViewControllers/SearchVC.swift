@@ -89,6 +89,7 @@ extension SearchVC {
       presentGFAlert(.init("Empty User name", message: "Please Enter the user name"))
       return
     }
+    userNameTextField.text = ""
     let vc = FollowerListVC(text)
     navigationController?.pushViewController(vc, animated: true)
   }
