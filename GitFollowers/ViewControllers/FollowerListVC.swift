@@ -40,6 +40,36 @@ class FollowerListVC: UIViewController {
     view.backgroundColor = .systemBackground
     navigationController?.navigationBar.prefersLargeTitles = true
     setupCollectionView()
+    setupSearchBar()
+  }
+}
+
+// MARK: - Search
+
+extension FollowerListVC {
+  
+  func setupSearchBar() {
+    let searchVC = UISearchController()
+    searchVC.searchResultsUpdater = self
+    searchVC.searchBar.delegate = self
+    searchVC.searchBar.placeholder = "Search"
+    searchVC.obscuresBackgroundDuringPresentation = false
+    
+    navigationItem.searchController = searchVC
+    navigationItem.hidesSearchBarWhenScrolling = false
+  }
+}
+
+extension FollowerListVC: UISearchBarDelegate {
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    viewModel.updateSearchResult()
+  }
+}
+
+extension FollowerListVC: UISearchResultsUpdating {
+  
+  func updateSearchResults(for searchController: UISearchController) {
+    viewModel.updateSearchResult(searchController.searchBar.text)
   }
 }
 
@@ -78,10 +108,10 @@ extension FollowerListVC {
       }
   }
   
-  private func updateData() {
+  private func updateData(_ followers: [Follower]) {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
     snapshot.appendSections([.main])
-    snapshot.appendItems(viewModel.followers)
+    snapshot.appendItems(followers)
     DispatchQueue.main.async { [weak self] in
       self?.collectionViewDataSource?.apply(snapshot, animatingDifferences: true)
     }
@@ -101,13 +131,13 @@ extension FollowerListVC: UICollectionViewDelegate {
 
 extension FollowerListVC: FollowerProtocol {
   
-  func updateUI(_ showPlaceholder: Bool) {
+  func updateUI(_ showPlaceholder: Bool, followers: [Follower]) {
     guard !showPlaceholder else {
       let message = "This user don't have any followers. Go follow them! "
       showEmptyView(message)
       return
     }
-    updateData()
+    updateData(followers)
   }
   
   func showLoaderView(_ show: Bool) {

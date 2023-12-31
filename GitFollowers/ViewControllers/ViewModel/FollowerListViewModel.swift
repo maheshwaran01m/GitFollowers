@@ -9,13 +9,15 @@ import UIKit
 
 protocol FollowerProtocol: AnyObject {
   func showLoaderView(_ show: Bool)
-  func updateUI(_ showPlaceholder: Bool)
+  func updateUI(_ showPlaceholder: Bool,  followers: [Follower])
 }
 
 class FollowerListViewModel {
   
   var userName: String
   var followers: [Follower] = []
+  
+  var filteredFollowers: [Follower] = []
   
   private var page = 1
   private var hasMoreFollowers = true
@@ -52,7 +54,7 @@ class FollowerListViewModel {
       
       self.hasMoreFollowers = !(followers.count < 100)
       self.followers.append(contentsOf: followers)
-      self.delegate?.updateUI(followers.isEmpty)
+      self.delegate?.updateUI(followers.isEmpty, followers: followers)
     }
   }
   
@@ -68,3 +70,16 @@ class FollowerListViewModel {
   }
 }
 
+extension FollowerListViewModel {
+  
+  func updateSearchResult(_ searchText: String? = nil) {
+    guard let searchText, !searchText.isEmpty else {
+      delegate?.updateUI(false, followers: followers)
+      return
+    }
+    filteredFollowers = followers.filter {
+      $0.id.lowercased().contains(searchText.lowercased())
+    }
+    delegate?.updateUI(false, followers: filteredFollowers)
+  }
+}
