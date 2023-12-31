@@ -35,7 +35,6 @@ extension UIViewController {
     }
     
     containerView?.backgroundColor = .secondarySystemGroupedBackground
-    containerView?.translatesAutoresizingMaskIntoConstraints = false
     containerView?.alpha = 0
     
     UIView.animate(withDuration: 0.25) {
