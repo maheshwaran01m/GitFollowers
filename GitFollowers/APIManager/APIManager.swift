@@ -54,6 +54,38 @@ final class APIManager {
       }
     }.resume()
   }
+  
+  func getUserDetails(_ userName: String, completion: @escaping (Result<User, Error>) -> Void) {
+    
+    guard let url = URL(string: baseURL + "/users/\(userName)") else {
+      completion(.failure(URLError(.badURL)))
+      return
+    }
+    
+    URLSession.shared.dataTask(with: url) { data, response, error in
+      guard error == nil else {
+        completion(.failure(URLError(.badServerResponse)))
+        return
+      }
+      guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+        completion(.failure(URLError(.secureConnectionFailed)))
+        return
+      }
+      
+      guard let data else {
+        completion(.failure(URLError(.dataNotAllowed)))
+        return
+      }
+      
+      do {
+        let user = try JSONDecoder().decode(User.self, from: data)
+        completion(.success(user))
+        
+      } catch {
+        completion(.failure(URLError(.cannotParseResponse)))
+      }
+    }.resume()
+  }
 }
 
 // MARK: - Image Cache
