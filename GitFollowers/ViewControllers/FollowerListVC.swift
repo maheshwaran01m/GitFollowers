@@ -54,6 +54,7 @@ extension FollowerListVC {
     
     collectionView.backgroundColor = .systemBackground
     collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseIdentifier)
+    collectionView.delegate = self
     configureCollectionViewDataSource()
   }
 }
@@ -84,6 +85,15 @@ extension FollowerListVC {
     DispatchQueue.main.async { [weak self] in
       self?.collectionViewDataSource?.apply(snapshot, animatingDifferences: true)
     }
+  }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension FollowerListVC: UICollectionViewDelegate {
+  
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    viewModel.updateFollowers(scrollView)
   }
 }
 
