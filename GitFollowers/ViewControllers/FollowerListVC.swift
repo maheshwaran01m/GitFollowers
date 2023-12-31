@@ -104,6 +104,14 @@ extension FollowerListVC: FollowerProtocol {
   func updateUI() {
     updateData()
   }
+  
+  func showLoaderView(_ show: Bool) {
+    if show {
+      showLoaderView()
+    } else {
+      hideLoaderView()
+    }
+  }
 }
 
 // MARK: - AlertProtocol
