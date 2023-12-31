@@ -101,7 +101,12 @@ extension FollowerListVC: UICollectionViewDelegate {
 
 extension FollowerListVC: FollowerProtocol {
   
-  func updateUI() {
+  func updateUI(_ showPlaceholder: Bool) {
+    guard !showPlaceholder else {
+      let message = "This user don't have any followers. Go follow them! "
+      showEmptyView(message)
+      return
+    }
     updateData()
   }
   

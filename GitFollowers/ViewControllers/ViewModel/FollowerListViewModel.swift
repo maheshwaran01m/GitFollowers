@@ -9,7 +9,7 @@ import UIKit
 
 protocol FollowerProtocol: AnyObject {
   func showLoaderView(_ show: Bool)
-  func updateUI()
+  func updateUI(_ showPlaceholder: Bool)
 }
 
 class FollowerListViewModel {
@@ -52,7 +52,7 @@ class FollowerListViewModel {
       
       self.hasMoreFollowers = !(followers.count < 100)
       self.followers.append(contentsOf: followers)
-      self.delegate?.updateUI()
+      self.delegate?.updateUI(followers.isEmpty)
     }
   }
   

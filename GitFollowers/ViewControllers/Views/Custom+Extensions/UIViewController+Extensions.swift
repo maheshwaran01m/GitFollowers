@@ -59,3 +59,14 @@ extension UIViewController {
     }
   }
 }
+
+// MARK: - Empty View
+
+extension UIViewController {
+  
+  func showEmptyView(_ message: String) {
+    let emptyView = GFEmptyView(message)
+    emptyView.frame = view.bounds
+    view.addSubview(emptyView)
+  }
+}
