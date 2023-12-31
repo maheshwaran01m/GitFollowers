@@ -10,25 +10,26 @@ import Foundation
 // Link: https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28
 
 struct User: Codable {
-  var id: String
-  var url: String
+  let id: String
+  let url: String
   var name: String?
   var location: String?
   var bio: String?
-  var repo: Int
-  var gists: Int
-  var htmlUrl: String
-  var following: Int
-  var followers: Int
-  var createdAt: String
+  let repo: Int
+  let gists: Int
+  let htmlUrl: String
+  let following: Int
+  let followers: Int
+  let createdAt: String
   
   enum CodingKeys: String, CodingKey {
     case id = "login"
-    case url = "avatar_urL"
-    case name
-    case repo = "publicRepos"
-    case gists = "publicGists"
+    case url = "avatar_url"
+    case name, location, bio
+    case repo = "public_repos"
+    case gists = "public_gists"
     case htmlUrl = "html_url"
-    case following, followers, createdAt
+    case createdAt = "created_at"
+    case following, followers
   }
 }
