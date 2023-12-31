@@ -125,6 +125,12 @@ extension FollowerListVC: UICollectionViewDelegate {
   func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
     viewModel.updateFollowers(scrollView)
   }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let profileVC = ProfileVC(using: viewModel.getFollower(indexPath.row))
+    let navigationVC = UINavigationController(rootViewController: profileVC)
+    present(navigationVC, animated: true)
+  }
 }
 
 // MARK: - FollowerProtocol
