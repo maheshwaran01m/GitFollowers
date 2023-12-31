@@ -33,6 +33,7 @@
 		9DB0BAFC2B41AB1E00C41A2D /* GFProfileHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAFB2B41AB1E00C41A2D /* GFProfileHeaderVC.swift */; };
 		9DB0BAFF2B41AB6900C41A2D /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAFE2B41AB6900C41A2D /* GFSecondaryTitleLabel.swift */; };
 		9DB0BB012B41B5C500C41A2D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB002B41B5C500C41A2D /* Constants.swift */; };
+		9DB0BB032B41BDEF00C41A2D /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB022B41BDEF00C41A2D /* GFItemInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		9DB0BAFB2B41AB1E00C41A2D /* GFProfileHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFProfileHeaderVC.swift; sourceTree = "<group>"; };
 		9DB0BAFE2B41AB6900C41A2D /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		9DB0BB002B41B5C500C41A2D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9DB0BB022B41BDEF00C41A2D /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				9DB0BAE02B403A6A00C41A2D /* GFAlertVC.swift */,
 				9DB0BAF22B405B6500C41A2D /* GFAvatarImageView.swift */,
 				9DB0BAF62B41134800C41A2D /* GFEmptyView.swift */,
+				9DB0BB022B41BDEF00C41A2D /* GFItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				9DB0BAF52B40761900C41A2D /* UIHelper.swift in Sources */,
 				9DB0BAEB2B404B6D00C41A2D /* APIManager.swift in Sources */,
 				9DB0BAD22B401A1800C41A2D /* GFButton.swift in Sources */,
+				9DB0BB032B41BDEF00C41A2D /* GFItemInfoView.swift in Sources */,
 				9DB0BADF2B40399B00C41A2D /* GFBodyLabel.swift in Sources */,
 				9DB0BB012B41B5C500C41A2D /* Constants.swift in Sources */,
 			);

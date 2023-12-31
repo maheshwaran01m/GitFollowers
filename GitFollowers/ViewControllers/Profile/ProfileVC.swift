@@ -10,6 +10,10 @@ import UIKit
 class ProfileVC: UIViewController {
   
   private let headerView = UIView()
+  private let itemViewOne = UIView()
+  private let itemViewTwo = UIView()
+  
+  private var itemViews = [UIView]()
   
   private let user: Follower
   
@@ -37,16 +41,35 @@ class ProfileVC: UIViewController {
   }
   
   private func setupViews() {
-    view.addSubview(headerView)
+    itemViews = [headerView, itemViewOne, itemViewTwo]
+    
+    for itemView in itemViews {
+      view.addSubview(itemView)
+      itemView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     headerView.backgroundColor = .systemBackground
-    headerView.layer.borderColor = UIColor.gray.cgColor
-    headerView.translatesAutoresizingMaskIntoConstraints = false
+    itemViewOne.backgroundColor = .systemBackground
+    itemViewTwo.backgroundColor = .systemBackground
+    
+    let padding: CGFloat = 20
+    let itemHeight: CGFloat = 140
     
     NSLayoutConstraint.activate([
       headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       headerView.leftAnchor.constraint(equalTo: view.leftAnchor),
       headerView.rightAnchor.constraint(equalTo: view.rightAnchor),
       headerView.heightAnchor.constraint(equalToConstant: 180),
+      
+      itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
+      itemViewOne.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
+      itemViewOne.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+      itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
+      
+      itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
+      itemViewTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
+      itemViewTwo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+      itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
     ])
   }
   
