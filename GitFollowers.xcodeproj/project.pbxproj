@@ -28,6 +28,7 @@
 		9DB0BAF12B405A3300C41A2D /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAF02B405A3300C41A2D /* FollowerCell.swift */; };
 		9DB0BAF32B405B6500C41A2D /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAF22B405B6500C41A2D /* GFAvatarImageView.swift */; };
 		9DB0BAF52B40761900C41A2D /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAF42B40761900C41A2D /* UIHelper.swift */; };
+		9DB0BAF72B41134800C41A2D /* GFEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BAF62B41134800C41A2D /* GFEmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		9DB0BAF02B405A3300C41A2D /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		9DB0BAF22B405B6500C41A2D /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		9DB0BAF42B40761900C41A2D /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		9DB0BAF62B41134800C41A2D /* GFEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				9DB0BADE2B40399B00C41A2D /* GFBodyLabel.swift */,
 				9DB0BAE02B403A6A00C41A2D /* GFAlertVC.swift */,
 				9DB0BAF22B405B6500C41A2D /* GFAvatarImageView.swift */,
+				9DB0BAF62B41134800C41A2D /* GFEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				9DB0BAD62B402B4D00C41A2D /* FollowerListVC.swift in Sources */,
 				9DB0BADD2B40388600C41A2D /* GFTitleLabel.swift in Sources */,
 				9DB0BABB2B400DF300C41A2D /* SceneDelegate.swift in Sources */,
+				9DB0BAF72B41134800C41A2D /* GFEmptyView.swift in Sources */,
 				9DB0BAF52B40761900C41A2D /* UIHelper.swift in Sources */,
 				9DB0BAEB2B404B6D00C41A2D /* APIManager.swift in Sources */,
 				9DB0BAD22B401A1800C41A2D /* GFButton.swift in Sources */,
