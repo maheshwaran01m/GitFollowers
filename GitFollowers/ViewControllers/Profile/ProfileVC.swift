@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import SafariServices
+
+protocol ProfileDelegate: AnyObject {
+  func didTapGitHubProfile(for user: User)
+  func didTapGetFollowers(for user: User)
+}
 
 class ProfileVC: UIViewController {
   
@@ -99,14 +105,42 @@ extension ProfileVC {
       switch result {
       case .success(let user):
         DispatchQueue.main.async {
-          self.add(GFProfileHeaderVC(user), to: self.headerView)
-          self.add(GFRepoItemVC(user), to: self.itemViewOne)
-          self.add(GFFollowerItemVC(user), to: self.itemViewTwo)
-          self.dateLabel.text = "GitHub since " + user.createdAt.convertToDisplayFormat
+          self.setupProfileDetails(user)
         }
       case .failure(let error):
         print(error.localizedDescription)
       }
     }
+  }
+  
+  private func setupProfileDetails(_ user: User) {
+    self.add(GFProfileHeaderVC(user), to: self.headerView)
+    
+    let repoItemVC = GFRepoItemVC(user)
+    repoItemVC.delegate = self
+    self.add(repoItemVC, to: self.itemViewOne)
+    
+    let followerVC = GFFollowerItemVC(user)
+    followerVC.delegate = self
+    self.add(followerVC, to: self.itemViewTwo)
+    
+    self.dateLabel.text = "GitHub since " + user.createdAt.convertToDisplayFormat
+  }
+}
+
+extension ProfileVC: ProfileDelegate {
+  
+  func didTapGitHubProfile(for user: User) {
+    guard let url = URL(string: user.htmlUrl) else {
+      presentGFAlert(.init("Invalid URL", message: "The url attached to this user is invalid"))
+      return
+    }
+    let safariVC = SFSafariViewController(url: url)
+    safariVC.preferredControlTintColor = .systemGreen
+    present(safariVC, animated: true)
+  }
+  
+  func didTapGetFollowers(for user: User) {
+    
   }
 }

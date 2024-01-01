@@ -20,4 +20,8 @@ class GFRepoItemVC: GFProfileInfoVC {
     
     actionButton.set("GitHub Profile", backgroundColor: .systemPurple)
   }
+  
+  override func didTapButtonAction() {
+    delegate?.didTapGitHubProfile(for: user)
+  }
 }
