@@ -37,6 +37,7 @@
 		9DB0BB052B41C22000C41A2D /* GFProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB042B41C22000C41A2D /* GFProfileInfoVC.swift */; };
 		9DB0BB072B41C57B00C41A2D /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB062B41C57B00C41A2D /* GFRepoItemVC.swift */; };
 		9DB0BB092B41C70D00C41A2D /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB082B41C70D00C41A2D /* GFFollowerItemVC.swift */; };
+		9DB0BB0B2B41CA2B00C41A2D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB0BB0A2B41CA2B00C41A2D /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		9DB0BB042B41C22000C41A2D /* GFProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFProfileInfoVC.swift; sourceTree = "<group>"; };
 		9DB0BB062B41C57B00C41A2D /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
 		9DB0BB082B41C70D00C41A2D /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
+		9DB0BB0A2B41CA2B00C41A2D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				9DB0BAE22B40407700C41A2D /* UIViewController+Extensions.swift */,
 				9DB0BAF42B40761900C41A2D /* UIHelper.swift */,
 				9DB0BB002B41B5C500C41A2D /* Constants.swift */,
+				9DB0BB0A2B41CA2B00C41A2D /* Date+Extensions.swift */,
 			);
 			path = "Custom+Extensions";
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				9DB0BAF72B41134800C41A2D /* GFEmptyView.swift in Sources */,
 				9DB0BAF52B40761900C41A2D /* UIHelper.swift in Sources */,
 				9DB0BAEB2B404B6D00C41A2D /* APIManager.swift in Sources */,
+				9DB0BB0B2B41CA2B00C41A2D /* Date+Extensions.swift in Sources */,
 				9DB0BAD22B401A1800C41A2D /* GFButton.swift in Sources */,
 				9DB0BB032B41BDEF00C41A2D /* GFItemInfoView.swift in Sources */,
 				9DB0BADF2B40399B00C41A2D /* GFBodyLabel.swift in Sources */,
