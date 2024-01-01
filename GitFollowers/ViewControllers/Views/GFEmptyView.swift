@@ -39,13 +39,13 @@ class GFEmptyView: UIView {
     
     NSLayoutConstraint.activate([
       messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-      messageLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
-      messageLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -40),
+      messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+      messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
       messageLabel.heightAnchor.constraint(equalToConstant: 150),
       
       imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
       imageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
-      imageView.rightAnchor.constraint(equalTo: rightAnchor, constant: 80),
+      imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 80),
       imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 40),
     ])
   }
