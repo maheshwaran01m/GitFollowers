@@ -40,13 +40,13 @@ class FavoritesCell: UITableViewCell {
   private func setupConstraints() {
     NSLayoutConstraint.activate([
       avatarImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-      avatarImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12),
+      avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
       avatarImageView.heightAnchor.constraint(equalToConstant: 60),
       avatarImageView.widthAnchor.constraint(equalToConstant: 60),
       
       userName.centerYAnchor.constraint(equalTo: centerYAnchor),
-      userName.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 24),
-      userName.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
+      userName.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 24),
+      userName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
       userName.heightAnchor.constraint(equalToConstant: 40)
     ])
   }

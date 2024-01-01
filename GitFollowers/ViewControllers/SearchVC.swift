@@ -9,6 +9,9 @@ import UIKit
 
 class SearchVC: UIViewController {
   
+  private let scrollView = UIScrollView()
+  private let contentView = UIView()
+  
   private lazy var imageView: UIImageView = {
     let image = UIImageView()
     image.image = .init(named: "gh-logo")
@@ -18,6 +21,8 @@ class SearchVC: UIViewController {
   
   private let userNameTextField = GFTextField()
   private let getFollowersButton = GFButton("Get Followers", backgroundColor: .systemGreen)
+  
+  private var logoImageTopConstraint: NSLayoutConstraint?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,10 +35,17 @@ class SearchVC: UIViewController {
   }
   
   private func setupView() {
+    view.addSubview(scrollView)
+    scrollView.addSubview(contentView)
+    
+    scrollView.edges(to: view)
+    contentView.edges(to: scrollView)
+    
     view.backgroundColor = .systemBackground
-    view.addSubview(imageView)
-    view.addSubview(userNameTextField)
-    view.addSubview(getFollowersButton)
+    contentView.backgroundColor = .systemBackground
+    contentView.addSubview(imageView)
+    contentView.addSubview(userNameTextField)
+    contentView.addSubview(getFollowersButton)
     userNameTextField.delegate = self
     setupConstraint()
     setupButtonAction()
@@ -42,20 +54,24 @@ class SearchVC: UIViewController {
   
   private func setupConstraint() {
     NSLayoutConstraint.activate([
-      imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-      imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      
+      contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+      contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+      
+      imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 80),
+      imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
       imageView.heightAnchor.constraint(equalToConstant: 350),
       imageView.widthAnchor.constraint(equalToConstant: 350),
       
       userNameTextField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40),
-      userNameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-      userNameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+      userNameTextField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+      userNameTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
       userNameTextField.heightAnchor.constraint(equalToConstant: 50),
       
       //getFollowersButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
       getFollowersButton.topAnchor.constraint(greaterThanOrEqualTo: userNameTextField.bottomAnchor, constant: 50),
-      getFollowersButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-      getFollowersButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+      getFollowersButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+      getFollowersButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
       getFollowersButton.heightAnchor.constraint(equalToConstant: 50),
     ])
   }

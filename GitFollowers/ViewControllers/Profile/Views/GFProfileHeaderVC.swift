@@ -65,33 +65,33 @@ class GFProfileHeaderVC: UIViewController {
     
     NSLayoutConstraint.activate([
       imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
-      imageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
+      imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
       imageView.widthAnchor.constraint(equalToConstant: 90),
       imageView.heightAnchor.constraint(equalToConstant: 90),
       
       userNameLabel.topAnchor.constraint(equalTo: imageView.topAnchor),
-      userNameLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: textImagePadding),
-      userNameLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+      userNameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: textImagePadding),
+      userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
       userNameLabel.heightAnchor.constraint(equalToConstant: 38),
       
       nameLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor, constant: 8),
-      nameLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: textImagePadding),
-      nameLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+      nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: textImagePadding),
+      nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
       nameLabel.heightAnchor.constraint(equalToConstant: padding),
       
       locationImageView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
-      locationImageView.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: textImagePadding),
+      locationImageView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: textImagePadding),
       locationImageView.widthAnchor.constraint(equalToConstant: padding),
       locationImageView.heightAnchor.constraint(equalToConstant: padding),
       
       locationLabel.centerYAnchor.constraint(equalTo: locationImageView.centerYAnchor),
-      locationLabel.leftAnchor.constraint(equalTo: locationImageView.rightAnchor, constant: 5),
-      locationLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+      locationLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5),
+      locationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
       locationLabel.heightAnchor.constraint(equalToConstant: padding),
       
       bioLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: textImagePadding),
-      bioLabel.leftAnchor.constraint(equalTo: imageView.leftAnchor),
-      bioLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+      bioLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+      bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
       bioLabel.heightAnchor.constraint(equalToConstant: 60)
     ])
   }

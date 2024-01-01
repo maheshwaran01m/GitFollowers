@@ -34,18 +34,18 @@ class GFItemInfoView: UIView {
     
     NSLayoutConstraint.activate([
       imageView.topAnchor.constraint(equalTo: topAnchor),
-      imageView.leftAnchor.constraint(equalTo: leftAnchor),
+      imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
       imageView.widthAnchor.constraint(equalToConstant: 20),
       imageView.heightAnchor.constraint(equalToConstant: 20),
       
       titleLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-      titleLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 12),
-      titleLabel.rightAnchor.constraint(equalTo: rightAnchor),
+      titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 12),
+      titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
       titleLabel.heightAnchor.constraint(equalToConstant: 18),
       
       countLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
-      countLabel.leftAnchor.constraint(equalTo: leftAnchor),
-      countLabel.rightAnchor.constraint(equalTo: rightAnchor),
+      countLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+      countLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
       countLabel.heightAnchor.constraint(equalToConstant: 18)
     ])
   }

@@ -64,18 +64,18 @@ class GFAlertVC: UIViewController {
       containerView.heightAnchor.constraint(equalToConstant: 220),
       
       titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding),
-      titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding),
-      titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding),
+      titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
+      titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
       titleLabel.heightAnchor.constraint(equalToConstant: 28),
       
       actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
-      actionButton.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding),
-      actionButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding),
+      actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
+      actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
       actionButton.heightAnchor.constraint(equalToConstant: 44),
       
       messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-      messageLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding),
-      messageLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding),
+      messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
+      messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
       messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -12),
     ])
   }
