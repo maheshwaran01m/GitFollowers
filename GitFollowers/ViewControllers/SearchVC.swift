@@ -90,6 +90,7 @@ extension SearchVC {
       return
     }
     userNameTextField.text = ""
+    userNameTextField.resignFirstResponder()
     let vc = FollowerListVC(text)
     navigationController?.pushViewController(vc, animated: true)
   }

@@ -48,9 +48,7 @@ enum PersistenceManager {
                          completion: @escaping (Error?) -> Void) {
     getFavorites { result in
       switch result {
-      case .success(let favorites):
-        var favorites = favorites
-        
+      case .success(var favorites):
         switch actionType {
         case .add:
           guard !favorites.contains(favorite) else {

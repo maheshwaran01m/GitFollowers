@@ -189,6 +189,6 @@ extension FollowerListVC: FollowerListDelegate {
   func didRequestFollowers(for username: String) {
     title = username
     viewModel.resetFollowers(username)
-    collectionView?.setContentOffset(.zero, animated: true)
+    collectionView?.scrollToItem(at: .init(row: 0, section: 0), at: .top, animated: true)
   }
 }
