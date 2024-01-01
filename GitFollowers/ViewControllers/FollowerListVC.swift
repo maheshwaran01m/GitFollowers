@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FollowerListDelegate: AnyObject {
+  func didRequestFollowers(for username: String)
+}
+
 class FollowerListVC: UIViewController {
   
   private var viewModel: FollowerListViewModel
@@ -128,6 +132,7 @@ extension FollowerListVC: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let profileVC = ProfileVC(using: viewModel.getFollower(indexPath.row))
+    profileVC.delegate = self
     let navigationVC = UINavigationController(rootViewController: profileVC)
     present(navigationVC, animated: true)
   }
@@ -161,5 +166,16 @@ extension FollowerListVC: AlertProtocol {
   
   func showAlert(_ alertItem: AlertItem) {
     presentGFAlert(alertItem)
+  }
+}
+
+// MARK: - FollowerListDelegate
+
+extension FollowerListVC: FollowerListDelegate {
+  
+  func didRequestFollowers(for username: String) {
+    title = username
+    viewModel.resetFollowers(username)
+    collectionView?.setContentOffset(.zero, animated: true)
   }
 }

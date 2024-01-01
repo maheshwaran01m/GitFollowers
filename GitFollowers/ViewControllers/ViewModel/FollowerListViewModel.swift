@@ -93,3 +93,14 @@ extension FollowerListViewModel {
     isSearching ? filteredFollowers[row] : followers[row]
   }
 }
+
+extension FollowerListViewModel {
+  
+  func resetFollowers(_ username: String) {
+    userName = username
+    followers = []
+    filteredFollowers = []
+    page = 1
+    getFollowers(for: username, page: page)
+  }
+}
