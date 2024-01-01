@@ -22,6 +22,7 @@ class FollowerListViewModel {
   private var page = 1
   private var hasMoreFollowers = true
   private var isSearching = false
+  private var isLoading = false
   
   weak var alertDelegate: AlertProtocol?
   weak var delegate: FollowerProtocol?
@@ -35,6 +36,7 @@ class FollowerListViewModel {
   
   func getFollowers(for userName: String, page: Int) {
     delegate?.showLoaderView(true)
+    isLoading = true
     manager.getFollowers(userName, page: page) { [weak self] result in
       guard let self else { return }
       delegate?.showLoaderView(false)
@@ -46,6 +48,7 @@ class FollowerListViewModel {
         self.alertDelegate?.showAlert(.init("Bad Error", message: error.localizedDescription))
         print(error.localizedDescription)
       }
+      self.isLoading = false
     }
   }
   
@@ -60,7 +63,7 @@ class FollowerListViewModel {
   }
   
   func updateFollowers(_ scrollView: UIScrollView) {
-    guard hasMoreFollowers else { return }
+    guard hasMoreFollowers && !isLoading else { return }
     let offsetY = scrollView.contentOffset.y
     let contentHeight = scrollView.contentSize.height
     let height = scrollView.frame.size.height
