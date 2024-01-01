@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let scene = (scene as? UIWindowScene) else { return }
     window = UIWindow(windowScene: scene)
-    window?.rootViewController = tabBarController
+    window?.rootViewController = GFTabBarController()
     window?.makeKeyAndVisible()
   }
   
@@ -47,39 +47,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Called as the scene transitions from the foreground to the background.
     // Use this method to save data, release shared resources, and store enough scene-specific state information
     // to restore the scene back to its current state.
-  }
-}
-
-// MARK: - TabBar Views
-
-extension SceneDelegate {
-  
-  private var tabBarController: UITabBarController {
-    let tabBarController = UITabBarController()
-    tabBarController.viewControllers = [searchVC, favoritesVC]
-    configureTintColor()
-    
-    return tabBarController
-  }
-  
-  private var searchVC: UINavigationController {
-    let searchVC = SearchVC()
-    searchVC.title = "Search"
-    searchVC.tabBarItem = .init(tabBarSystemItem: .search, tag: 0)
-    
-    return .init(rootViewController: searchVC)
-  }
-  
-  private var favoritesVC: UINavigationController {
-    let favorites = FavoritesListVC()
-    favorites.title = "Favorites"
-    favorites.tabBarItem = .init(tabBarSystemItem: .favorites, tag: 1)
-    
-    return .init(rootViewController: favorites)
-  }
-  
-  private func configureTintColor() {
-    UITabBar.appearance().tintColor = .systemGreen
-    UINavigationBar.appearance().tintColor = .systemGreen
   }
 }
