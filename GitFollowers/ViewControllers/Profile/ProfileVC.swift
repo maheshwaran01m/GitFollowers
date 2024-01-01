@@ -12,6 +12,7 @@ class ProfileVC: UIViewController {
   private let headerView = UIView()
   private let itemViewOne = UIView()
   private let itemViewTwo = UIView()
+  private let dateLabel = GFBodyLabel(.center)
   
   private var itemViews = [UIView]()
   
@@ -41,7 +42,7 @@ class ProfileVC: UIViewController {
   }
   
   private func setupViews() {
-    itemViews = [headerView, itemViewOne, itemViewTwo]
+    itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
     
     for itemView in itemViews {
       view.addSubview(itemView)
@@ -70,6 +71,11 @@ class ProfileVC: UIViewController {
       itemViewTwo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
       itemViewTwo.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
       itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+      
+      dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+      dateLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
+      dateLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+      dateLabel.heightAnchor.constraint(equalToConstant: 18),
     ])
   }
   
@@ -96,6 +102,7 @@ extension ProfileVC {
           self.add(GFProfileHeaderVC(user), to: self.headerView)
           self.add(GFRepoItemVC(user), to: self.itemViewOne)
           self.add(GFFollowerItemVC(user), to: self.itemViewTwo)
+          self.dateLabel.text = "GitHub since " + user.createdAt.convertToDisplayFormat
         }
       case .failure(let error):
         print(error.localizedDescription)

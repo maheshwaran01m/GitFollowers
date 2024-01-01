@@ -22,3 +22,20 @@ extension String {
     return passwordPredicate.evaluate(with: self)
   }
 }
+
+extension String {
+  
+  var convertToDate: Date? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    dateFormatter.locale = .init(identifier: "en_US-POSIX")
+    dateFormatter.timeZone = .current
+    
+    return dateFormatter.date(from: self)
+  }
+  
+  var convertToDisplayFormat: String {
+    guard let date = convertToDate else { return "" }
+    return date.convertToMonthYearFormat
+  }
+}
