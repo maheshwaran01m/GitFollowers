@@ -104,3 +104,31 @@ extension FollowerListViewModel {
     getFollowers(for: username, page: page)
   }
 }
+
+extension FollowerListViewModel {
+  
+  func addToFavorites(_ completion: @escaping (AlertItem?) -> Void) {
+    
+    APIManager.shared.getUserDetails(userName) { [weak self] result in
+      guard let self else { return }
+      delegate?.showLoaderView(false)
+      
+      switch result {
+      case .success(let user):
+        let favorite = Follower(id: user.id, url: user.url)
+        PersistenceManager.updateWith(favorite, actionType: .add) { error in
+          
+          if let error {
+            completion(.init("Something went wrong",
+                             message: error.localizedDescription))
+          } else {
+            completion(.init("Success", message: "you have successfully add to favorites"))
+          }
+        }
+      case .failure(let error):
+        completion(.init("Something went wrong",
+                         message: error.localizedDescription))
+      }
+    }
+  }
+}
