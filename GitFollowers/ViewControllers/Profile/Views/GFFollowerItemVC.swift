@@ -20,4 +20,8 @@ class GFFollowerItemVC: GFProfileInfoVC {
     
     actionButton.set("Git Followers", backgroundColor: .systemGreen)
   }
+  
+  override func didTapButtonAction() {
+    delegate?.didTapGetFollowers(for: user)
+  }
 }

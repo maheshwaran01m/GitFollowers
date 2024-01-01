@@ -16,6 +16,8 @@ class GFProfileInfoVC: UIViewController {
   
   var user: User
   
+  weak var delegate: ProfileDelegate?
+  
   init(_ user: User) {
     self.user = user
     super.init(nibName: nil, bundle: nil)
@@ -58,5 +60,13 @@ class GFProfileInfoVC: UIViewController {
     stackView.distribution = .equalSpacing
     stackView.addArrangedSubview(itemInfoViewOne)
     stackView.addArrangedSubview(itemInfoViewTwo)
+    
+    setupButtonAction()
   }
+  
+  private func setupButtonAction() {
+    actionButton.addTarget(self, action: #selector(didTapButtonAction), for: .touchUpInside)
+  }
+  
+  @objc func didTapButtonAction() {}
 }
