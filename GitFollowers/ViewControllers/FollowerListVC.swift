@@ -43,6 +43,10 @@ class FollowerListVC: UIViewController {
   private func setup() {
     view.backgroundColor = .systemBackground
     navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.rightBarButtonItem = .init(
+      barButtonSystemItem: .add,
+      target: self,
+      action: #selector(addButtonTapped))
     setupCollectionView()
     setupSearchBar()
   }
@@ -135,6 +139,15 @@ extension FollowerListVC: UICollectionViewDelegate {
     profileVC.delegate = self
     let navigationVC = UINavigationController(rootViewController: profileVC)
     present(navigationVC, animated: true)
+  }
+}
+
+extension FollowerListVC {
+  
+  @objc private func addButtonTapped() {
+    viewModel.addToFavorites { [weak self] error in
+      self?.presentGFAlert(error)
+    }
   }
 }
 
