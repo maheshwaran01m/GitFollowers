@@ -37,4 +37,22 @@ class GFButton: UIButton {
     self.backgroundColor = backgroundColor
     setTitle(title, for: .normal)
   }
+  
+  func configure(_ title: String, color: UIColor) {
+    configuration?.baseBackgroundColor = color
+    configuration?.baseForegroundColor = color
+    configuration?.title = title
+    
+    configuration?.cornerStyle = .capsule
+    configuration = .tinted()
+  }
+  
+  func configure(
+    forImage  systemImage: String = "plus",
+    placement: NSDirectionalRectEdge = .leading,
+    padding: CGFloat = 6) {
+      configuration?.image = UIImage(systemName: systemImage)
+      configuration?.imagePadding = padding
+      configuration?.imagePlacement = placement
+    }
 }
